@@ -42,4 +42,20 @@ class HomeController extends ChangeNotifier{
     }
   ];
 
+
+
+
+
+
+
+  bool _isFavorite = false;
+  bool get isFavorite => _isFavorite;
+
+  void setIsFavorite(){
+    _isFavorite = !_isFavorite ;
+    notifyListeners();
+  }
+
+
+
 }

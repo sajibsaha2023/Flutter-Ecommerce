@@ -1,5 +1,5 @@
 import 'package:ecommerce/src/modules/account/account_view.dart';
-import 'package:ecommerce/src/modules/home/home_view.dart';
+import 'package:ecommerce/src/modules/home/views/home_view.dart';
 import 'package:ecommerce/src/modules/wishlist/wishlist_view.dart';
 import 'package:flutter/material.dart';
 

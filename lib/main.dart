@@ -1,6 +1,6 @@
 import 'package:ecommerce/src/controller/home_controller.dart';
 import 'package:ecommerce/src/data/global_widgets/bottom_navigation.dart';
-import 'package:ecommerce/src/modules/home/home_view.dart';
+import 'package:ecommerce/src/modules/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
