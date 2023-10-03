@@ -2,6 +2,7 @@ import 'package:ecommerce/src/modules/account/account_view.dart';
 import 'package:ecommerce/src/modules/home/views/home_view.dart';
 import 'package:ecommerce/src/modules/wishlist/wishlist_view.dart';
 import 'package:flutter/material.dart';
+import '../../modules/checkout/views/checkout_view.dart';
 
 
 class BottomNavigation extends StatefulWidget {
@@ -13,7 +14,7 @@ class BottomNavigation extends StatefulWidget {
 
 class _BottomNavigationState extends State<BottomNavigation> {
 
-  static const pages = [HomeView(), AccountView(),WishListView(), AccountView(),];
+  static const pages = [HomeView(), WishListView(),CheckOutView(), AccountView(),];
 
   int currentIndex = 0;
 
@@ -24,9 +25,9 @@ class _BottomNavigationState extends State<BottomNavigation> {
         currentIndex: currentIndex,
         items: [
           BottomNavigationBarItem(icon: Image.asset('assets/images/b_home.png'), label: '' ),
-          BottomNavigationBarItem(icon: Image.asset('assets/images/b_item.png'), label: ''),
-          BottomNavigationBarItem(icon: Image.asset('assets/images/b_search.png'), label: ''),
-          BottomNavigationBarItem(icon: Image.asset('assets/images/b_user.png'), label: '')
+          const BottomNavigationBarItem(icon: Icon(Icons.favorite_border,color: Colors.black,), label: ''),
+          const BottomNavigationBarItem(icon: Icon(Icons.shopping_cart,color: Colors.black), label: ''),
+          const BottomNavigationBarItem(icon: Icon(Icons.account_box,color: Colors.black), label: '')
         ],
         onTap: (index){
           setState(() {

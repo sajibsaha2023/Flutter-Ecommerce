@@ -14,8 +14,9 @@ class _SinglePromoWidgetState extends State<SinglePromoWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
+        margin: EdgeInsets.only(bottom: 15.h,),
         height: 200.h,
-        decoration: const BoxDecoration(color: Colors.white),
+        decoration: const BoxDecoration(color: Colors.white,),
         child: Padding(
           padding: EdgeInsets.all(10.w),
           child: Column(

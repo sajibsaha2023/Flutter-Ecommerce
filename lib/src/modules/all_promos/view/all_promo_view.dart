@@ -33,11 +33,9 @@ class _AllPromoViewState extends State<AllPromoView> {
         ),
 
       ),
-      body: const Column(
-        children: [
-          SinglePromoWidget()
-        ],
-      ),
+      body: ListView.builder(
+          itemCount: 15,
+          itemBuilder: (context, index) => const SinglePromoWidget())
     );
   }
 }
