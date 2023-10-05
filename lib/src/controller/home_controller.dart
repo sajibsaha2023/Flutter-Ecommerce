@@ -1,8 +1,6 @@
 import 'package:flutter/widgets.dart';
 
 class HomeController extends ChangeNotifier{
-
-
   List itemList = [
     {
       'id' : 1,
@@ -15,7 +13,7 @@ class HomeController extends ChangeNotifier{
       'isFavorite':false
     },
     {
-      'id' : 1,
+      'id' : 2,
       'item_pic' : 'assets/images/dish_two.png',
       'item_name' : 'Dish Name',
       'item_subname' : 'Dish Subtitle',
@@ -25,7 +23,7 @@ class HomeController extends ChangeNotifier{
       'isFavorite':false
     },
     {
-      'id' : 1,
+      'id' : 3,
       'item_pic' : 'assets/images/dish_one.png',
       'item_name' : 'Dish Name',
       'item_subname' : 'Dish Subtitle',
@@ -35,7 +33,7 @@ class HomeController extends ChangeNotifier{
       'isFavorite':false
     },
     {
-      'id' : 1,
+      'id' : 4,
       'item_pic' : 'assets/images/dish_two.png',
       'item_name' : 'Dish Name',
       'item_subname' : 'Dish Subtitle',
@@ -46,12 +44,21 @@ class HomeController extends ChangeNotifier{
     }
   ];
 
+  List wishlist = [];
+  List get wishlists => wishlist;
 
 
+   setToWishlistItem (item){
+    if(item["isFavorite"]){
+      wishlist.add(item);
+    }else{
+      wishlist.remove(item);
+    }
+    print(wishlist.length);
+    print("wishlist");
+    notifyListeners();
 
-
-
-
+  }
 
 
 
@@ -62,9 +69,25 @@ class HomeController extends ChangeNotifier{
 
     if(itemList[index]['isFavorite']){
       itemList[index]['isFavorite'] = false;
+      setToWishlistItem(itemList[index]);
     }else{
       itemList[index]['isFavorite'] = true;
+      setToWishlistItem(itemList[index]);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     // bool fav = itemList[index]['isFavorite'];
     // if(itemList[index]['isFavorite']){
