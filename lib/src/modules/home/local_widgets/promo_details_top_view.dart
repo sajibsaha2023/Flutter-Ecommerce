@@ -45,7 +45,7 @@ class _PromoDetailsTopViewState extends State<PromoDetailsTopView> {
           right: 10.w,
           child:  InkWell(
             onTap: (){
-              itemProvider.setIsFavorite();
+              // itemProvider.setIsFavorite();
             },
             child: Container(
               height: 30.w,
@@ -54,8 +54,7 @@ class _PromoDetailsTopViewState extends State<PromoDetailsTopView> {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(50.w/2)
               ),
-              child: Center(child:itemProvider.isFavorite == true
-                  ? Icon(Icons.favorite_border):
+              child: Center(child:
               Icon(Icons.favorite,color:Colors.deepOrange ,)),
             ),
           ),),

@@ -1,3 +1,4 @@
+import 'package:ecommerce/src/data/global_widgets/bottom_navigation.dart';
 import 'package:ecommerce/src/data/global_widgets/size_of_height.dart';
 import 'package:ecommerce/src/modules/all_promos/view/all_promo_view.dart';
 import 'package:ecommerce/src/modules/home/views/home_view.dart';
@@ -40,7 +41,7 @@ class _PlaceConfirmOrderState extends State<PlaceConfirmOrder> {
               SizeOfHeight(heights: 20.h),
               InkWell(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (_)=>const HomeView()));
+                  Navigator.push(context, MaterialPageRoute(builder: (_)=>const BottomNavigation()));
                 },
                 child: Container(
                   margin: EdgeInsets.only(left: 20.w,right: 20.w),
