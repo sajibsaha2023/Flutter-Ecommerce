@@ -35,7 +35,7 @@ class _AllPromoViewState extends State<AllPromoView> {
       ),
       body: ListView.builder(
           itemCount: 15,
-          itemBuilder: (context, index) => const SinglePromoWidget())
+          itemBuilder: (context, index) =>  SinglePromoWidget(singleItem:index))
     );
   }
 }

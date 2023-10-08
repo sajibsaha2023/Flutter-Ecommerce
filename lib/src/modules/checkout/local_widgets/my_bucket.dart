@@ -20,6 +20,6 @@ class _MyBucketState extends State<MyBucket> {
     final itemList = Provider.of<HomeController>(context);
     return ListView.builder(
         itemCount: 15,
-        itemBuilder: (context, index) => const SinglePromoWidget());
+        itemBuilder: (context, index) =>  SinglePromoWidget(singleItem: index),);
   }
 }

@@ -1,22 +1,26 @@
+import 'package:ecommerce/src/controller/home_controller.dart';
 import 'package:ecommerce/src/data/global_widgets/size_of_height.dart';
 import 'package:ecommerce/src/data/global_widgets/size_of_width.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 
-class SinglePromoWidget extends StatefulWidget {
-  const SinglePromoWidget({super.key});
+class SinglePromoWidget extends StatelessWidget {
+  SinglePromoWidget({super.key, required this.singleItem});
 
-  @override
-  State<SinglePromoWidget> createState() => _SinglePromoWidgetState();
-}
+  dynamic singleItem;
 
-class _SinglePromoWidgetState extends State<SinglePromoWidget> {
   @override
   Widget build(BuildContext context) {
+    var itemProvider = Provider.of<HomeController>(context);
     return Container(
-        margin: EdgeInsets.only(bottom: 15.h,),
+        margin: EdgeInsets.only(
+          bottom: 15.h,
+        ),
         height: 200.h,
-        decoration: const BoxDecoration(color: Colors.white,),
+        decoration: const BoxDecoration(
+          color: Colors.white,
+        ),
         child: Padding(
           padding: EdgeInsets.all(10.w),
           child: Column(
@@ -124,8 +128,17 @@ class _SinglePromoWidgetState extends State<SinglePromoWidget> {
                       ],
                     ),
                     IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.favorite_border),
+                      onPressed: () {
+                      itemProvider.removeToWishlist(itemProvider.wishlist[singleItem]);
+                      },
+                      icon: itemProvider.wishlist[singleItem]["isFavorite"]
+                          ? const Icon(
+                              Icons.favorite,
+                              color: Colors.deepOrange,
+                            )
+                          : const Icon(
+                              Icons.favorite_border,
+                            ),
                     )
                   ],
                 ),
@@ -170,13 +183,14 @@ class _SinglePromoWidgetState extends State<SinglePromoWidget> {
                     ),
                   ),
                   Container(
-                      padding: EdgeInsets.all(10.w),
-                      height: 35.w,
-                      decoration: BoxDecoration(
-                        color: const Color(0xffE84C4F),
-                        borderRadius: BorderRadius.circular(10.r),
-                      ),
-                      child: const Text("Add to Cart")),
+                    padding: EdgeInsets.all(10.w),
+                    height: 35.w,
+                    decoration: BoxDecoration(
+                      color: const Color(0xffE84C4F),
+                      borderRadius: BorderRadius.circular(10.r),
+                    ),
+                    child: const Text("Add to Cart"),
+                  ),
                 ],
               ),
             ],

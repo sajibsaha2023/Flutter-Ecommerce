@@ -1,93 +1,85 @@
 import 'package:flutter/widgets.dart';
 
-class HomeController extends ChangeNotifier{
+class HomeController extends ChangeNotifier {
   List itemList = [
     {
-      'id' : 1,
-      'item_pic' : 'assets/images/dish_one.png',
-      'item_name' : 'Dish Name',
-      'item_subname' : 'Dish Subtitle',
-      'special_price' : '120',
-      'regular_price' : '180',
-      'item_left' : '5',
-      'isFavorite':false
+      'id': 1,
+      'item_pic': 'assets/images/dish_one.png',
+      'item_name': 'Dish Name',
+      'item_subname': 'Dish Subtitle',
+      'special_price': '120',
+      'regular_price': '180',
+      'item_left': '5',
+      'isFavorite': false
     },
     {
-      'id' : 2,
-      'item_pic' : 'assets/images/dish_two.png',
-      'item_name' : 'Dish Name',
-      'item_subname' : 'Dish Subtitle',
-      'special_price' : '120',
-      'regular_price' : '190',
-      'item_left' : '5',
-      'isFavorite':false
+      'id': 2,
+      'item_pic': 'assets/images/dish_two.png',
+      'item_name': 'Dish Name',
+      'item_subname': 'Dish Subtitle',
+      'special_price': '120',
+      'regular_price': '190',
+      'item_left': '5',
+      'isFavorite': false
     },
     {
-      'id' : 3,
-      'item_pic' : 'assets/images/dish_one.png',
-      'item_name' : 'Dish Name',
-      'item_subname' : 'Dish Subtitle',
-      'special_price' : '120',
-      'regular_price' : '180',
-      'item_left' : '5',
-      'isFavorite':false
+      'id': 3,
+      'item_pic': 'assets/images/dish_one.png',
+      'item_name': 'Dish Name',
+      'item_subname': 'Dish Subtitle',
+      'special_price': '120',
+      'regular_price': '180',
+      'item_left': '5',
+      'isFavorite': false
     },
     {
-      'id' : 4,
-      'item_pic' : 'assets/images/dish_two.png',
-      'item_name' : 'Dish Name',
-      'item_subname' : 'Dish Subtitle',
-      'special_price' : '120',
-      'regular_price' : '180',
-      'item_left' : '5',
-      'isFavorite':false
+      'id': 4,
+      'item_pic': 'assets/images/dish_two.png',
+      'item_name': 'Dish Name',
+      'item_subname': 'Dish Subtitle',
+      'special_price': '120',
+      'regular_price': '180',
+      'item_left': '5',
+      'isFavorite': false
     }
   ];
 
   List wishlist = [];
   List get wishlists => wishlist;
 
-
-   setToWishlistItem (item){
-    if(item["isFavorite"]){
+  void setToWishlistItem(item) {
+    if (item["isFavorite"]) {
       wishlist.add(item);
-    }else{
+    } else {
       wishlist.remove(item);
     }
     print(wishlist.length);
     print("wishlist");
     notifyListeners();
-
   }
 
+  void removeToWishlist(item) {
+    itemList.asMap().forEach((ind, value) => {
+          if (item["id"] == value["id"])
+            {wishlist.remove(item), itemList[ind]['isFavorite'] = false}
+        });
 
-
+    // print(item);
+    // itemList[index]['isFavorite'] = false;
+    // setToWishlistItem(itemList[index]);
+    notifyListeners();
+  }
 
   List get itemLists => itemList;
 
-  void setIsFavorite(index){
-
-    if(itemList[index]['isFavorite']){
+  void setIsFavorite(index) {
+    if (itemList[index]['isFavorite']) {
       itemList[index]['isFavorite'] = false;
       setToWishlistItem(itemList[index]);
-    }else{
+    } else {
       itemList[index]['isFavorite'] = true;
       setToWishlistItem(itemList[index]);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     // bool fav = itemList[index]['isFavorite'];
     // if(itemList[index]['isFavorite']){
@@ -95,14 +87,7 @@ class HomeController extends ChangeNotifier{
     // }else{
     //   itemList[index]['isFavorite'].add();
     // }
-    // itemList.asMap().forEach((ind, value) =>{
-    //   if(index == ind){
-    //
-    //   }
-    // });
+
     notifyListeners();
   }
-
-
-
 }
