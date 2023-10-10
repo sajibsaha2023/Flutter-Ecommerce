@@ -156,7 +156,7 @@ class seeAllPromos extends StatelessWidget {
                               borderRadius: BorderRadius.circular(10.r)),
                           child: IconButton(
                               onPressed: () {
-                                itemProvider.incrementPromo(allPromos);
+                                itemProvider.incrementPromo(allPromos,context);
                               }, icon: const Icon(Icons.add)),
                         ),
                         SizeOfWidth(widths: 10.w),

@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:provider/provider.dart';
 
 class HomeController extends ChangeNotifier {
   List itemList = [
@@ -95,7 +96,9 @@ class HomeController extends ChangeNotifier {
     notifyListeners();
   }
 
-  void incrementPromo(index) {
+  void incrementPromo(index,context) {
+    var itemProvider = Provider.of<HomeController>(context);
+
     itemList[index]['count'] =  itemList[index]['count']+1;
     notifyListeners();
   }
