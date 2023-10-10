@@ -10,7 +10,8 @@ class HomeController extends ChangeNotifier {
       'special_price': '120',
       'regular_price': '180',
       'item_left': '5',
-      'isFavorite': false
+      'isFavorite': false,
+      "count": 1,
     },
     {
       'id': 2,
@@ -20,7 +21,8 @@ class HomeController extends ChangeNotifier {
       'special_price': '120',
       'regular_price': '190',
       'item_left': '5',
-      'isFavorite': false
+      'isFavorite': false,
+      "count": 1,
     },
     {
       'id': 3,
@@ -30,7 +32,8 @@ class HomeController extends ChangeNotifier {
       'special_price': '120',
       'regular_price': '180',
       'item_left': '5',
-      'isFavorite': false
+      'isFavorite': false,
+      "count": 1,
     },
     {
       'id': 4,
@@ -40,7 +43,8 @@ class HomeController extends ChangeNotifier {
       'special_price': '120',
       'regular_price': '180',
       'item_left': '5',
-      'isFavorite': false
+      'isFavorite': false,
+      "count": 1,
     }
   ];
 
@@ -87,6 +91,17 @@ class HomeController extends ChangeNotifier {
     // }else{
     //   itemList[index]['isFavorite'].add();
     // }
+
+    notifyListeners();
+  }
+
+  void incrementPromo(index) {
+    itemList[index]['count'] =  itemList[index]['count']+1;
+    notifyListeners();
+  }
+
+  void decrementPromo(index) {
+    itemList[index]['count'] == 1 ? 1 : itemList[index]['count']--;
 
     notifyListeners();
   }

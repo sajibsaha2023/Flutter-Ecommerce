@@ -25,7 +25,7 @@ class _CheckOutViewState extends State<CheckOutView> {
         backgroundColor: const Color(0xffF8F5F2),
         leading: InkWell(
           onTap: (){
-            Navigator.pop(context);
+            // Navigator.pop(context);
           },
           child: const Icon(
             Icons.arrow_back_ios,

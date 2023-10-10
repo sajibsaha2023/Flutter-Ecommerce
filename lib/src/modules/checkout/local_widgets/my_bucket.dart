@@ -1,4 +1,5 @@
 import 'package:ecommerce/src/data/global_widgets/size_of_height.dart';
+import 'package:ecommerce/src/modules/all_promos/local_widgets/see_all_promo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
@@ -20,6 +21,6 @@ class _MyBucketState extends State<MyBucket> {
     final itemList = Provider.of<HomeController>(context);
     return ListView.builder(
         itemCount: 15,
-        itemBuilder: (context, index) =>  SinglePromoWidget(singleItem: index),);
+        itemBuilder: (context, index) => Text(""),);
   }
 }

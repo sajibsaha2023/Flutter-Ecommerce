@@ -1,5 +1,8 @@
+import 'package:ecommerce/src/controller/home_controller.dart';
+import 'package:ecommerce/src/modules/all_promos/local_widgets/see_all_promo.dart';
 import 'package:ecommerce/src/modules/all_promos/local_widgets/single_promo_content.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class AllPromoView extends StatefulWidget {
   const AllPromoView({super.key});
@@ -11,6 +14,7 @@ class AllPromoView extends StatefulWidget {
 class _AllPromoViewState extends State<AllPromoView> {
   @override
   Widget build(BuildContext context) {
+    var itemProvider = Provider.of<HomeController>(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xffF8F5F2),
@@ -34,8 +38,8 @@ class _AllPromoViewState extends State<AllPromoView> {
 
       ),
       body: ListView.builder(
-          itemCount: 15,
-          itemBuilder: (context, index) =>  SinglePromoWidget(singleItem:index))
+          itemCount: itemProvider.itemList.length,
+          itemBuilder: (context, index) =>  seeAllPromos(allPromos: index,))
     );
   }
 }
