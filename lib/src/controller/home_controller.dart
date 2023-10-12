@@ -1,7 +1,31 @@
+import 'dart:convert';
+
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
 class HomeController extends ChangeNotifier {
+
+  List wishlist = [];
+
+  Future saveToSharePreference(item)async{
+    // Obtain shared preferences.
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    String token = jsonEncode(item);
+    prefs.setString("user", token);
+  }
+
+  Future getToSharePreference()async{
+     // Obtain shared preferences.
+     final SharedPreferences prefs = await SharedPreferences.getInstance();
+     var myData = prefs.getString('user');
+     dynamic token = jsonDecode(myData!);
+
+      // print("token user data");
+      // print(token);
+
+   }
+
+
   List itemList = [
     {
       'id': 1,
@@ -49,7 +73,7 @@ class HomeController extends ChangeNotifier {
     }
   ];
 
-  List wishlist = [];
+
   List get wishlists => wishlist;
 
   void setToWishlistItem(item) {
